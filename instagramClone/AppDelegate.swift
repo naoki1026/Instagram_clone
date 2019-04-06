@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     //この２行で新しい黒い画面を表示することができる
     window = UIWindow()
+    //window?.makeKeyAndVisible()
     
     //window?.rootViewController = LoginVC()
     //ここで最初に表示させる画面を定義する

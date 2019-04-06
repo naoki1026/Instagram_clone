@@ -82,7 +82,7 @@ class SignUpVC: UIViewController,UITextFieldDelegate, UIImagePickerControllerDel
     
     let button = UIButton(type: .system)
     button.setTitle("Sign Up", for: .normal)
-    button.setTitleColor(.white, for: .normal)
+    button.setTitleColor(AppColors.white, for: .normal)
     button.backgroundColor = AppColors.lightBlue
     button.layer.cornerRadius = 5
     button.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
@@ -109,7 +109,7 @@ class SignUpVC: UIViewController,UITextFieldDelegate, UIImagePickerControllerDel
     super.viewDidLoad()
     
     //背景は白
-    view.backgroundColor = .white
+    view.backgroundColor = AppColors.white
     
     view.addSubview(plusPhotoBtn)
     plusPhotoBtn.anchor(top: view.topAnchor, left: nil, bottom: nil, right: nil, paddingTop: 40, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 140, height: 140)
@@ -187,7 +187,7 @@ class SignUpVC: UIViewController,UITextFieldDelegate, UIImagePickerControllerDel
     guard let email = emailTextField.text else {return}
     guard let password = passwordTextField.text else {return}
     guard let fullName = fullNameTextField.text else {return}
-    guard let userName = userNameTextField.text else {return}
+    guard let userName = userNameTextField.text?.lowercased() else {return}
     
     //メールアドレスとパスワードをもとにユーザーを作成している
     Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
@@ -242,14 +242,16 @@ class SignUpVC: UIViewController,UITextFieldDelegate, UIImagePickerControllerDel
           Database.database().reference().child("users").updateChildValues(values, withCompletionBlock: { (error, ref) in
               print("Successfully created user and saved information database")
             
-            //guard let mainTabVC = UIApplication.shared.keyWindow?.rootViewController as? MainTabVC else { return }
+            //データベースに登録されている値がカラの場合にクラッシュしてしまうため、ユーザー情報が完全に更新される前までは古いものを表示するようになっている
+            guard let mainTabVC = UIApplication.shared.keyWindow?.rootViewController as? MainTabVC else { return }
             
-            // configure view controllers in maintabvc
-            //mainTabVC.configureViewControllers()
+            //configure view controllers in maintabvc
+            mainTabVC.configureViewControllers()
+            
             //mainTabVC.isInitialLoad = true
             
-            // dismiss login controller
-            //self.dismiss(animated: true, completion: nil)
+            //dismiss login controller
+            self.dismiss(animated: true, completion: nil)
             
           })
         })

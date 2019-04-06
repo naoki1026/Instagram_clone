@@ -70,7 +70,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     
     let button = UIButton(type: .system)
     button.setTitle("Login", for: .normal)
-    button.setTitleColor(.white, for: .normal)
+    button.setTitleColor(AppColors.white, for: .normal)
     button.backgroundColor = AppColors.lightBlue
     button.addTarget(self, action:#selector(handlelogin), for: .touchUpInside)
     button.layer.cornerRadius = 5
@@ -98,7 +98,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
       
       //背景色を設定する
-      view.backgroundColor = .white
+      view.backgroundColor = AppColors.white
       
       //AppDelegateで設定されたナビゲーションバーを非表示にする
       navigationController?.navigationBar.isHidden = true
