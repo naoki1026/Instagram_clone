@@ -277,7 +277,7 @@ class FeedCell: UICollectionViewCell {
       
     }
     
-    postTimeLabel.text = "2 DAYS AGO"
+    postTimeLabel.text = post.creationDate.timeAgoToDisplay()
   }
   
 //  func configurePostCaption(user: User){

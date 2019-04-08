@@ -163,6 +163,7 @@ class UserProfileHeader: UICollectionViewCell {
   }
   
   @objc func handleEditProfileFollow(){
+    
   //サブクラスの関数
   delegate?.handleEditFollowTapped(for: self)
   }

@@ -67,7 +67,7 @@ class MainTabVC: UITabBarController, UITabBarControllerDelegate {
     //ナビゲーションコントローラを設定
     let navController = UINavigationController(rootViewController: rootViewController)
     navController.tabBarItem.image = unselectedImage
-    
+
     //ここを非表示にすると、画像がselectedImageに切り替わらない
     navController.tabBarItem.selectedImage = selectedImage
     
@@ -124,7 +124,7 @@ class MainTabVC: UITabBarController, UITabBarControllerDelegate {
       
     } else if index == 3 {
       
-      print("Did select notification controller")
+      //print("Did select notification controller")
       
       //
       dot.isHidden = true
@@ -199,20 +199,3 @@ class MainTabVC: UITabBarController, UITabBarControllerDelegate {
 }
 
 
-//func observeNotifications() {
-//  guard let currentUid = Auth.auth().currentUser?.uid else { return }
-//
-//  NOTIFICATIONS_REF.child(currentUid).observeSingleEvent(of: .value) { (snapshot) in
-//    guard let allObjects = snapshot.children.allObjects as? [DataSnapshot] else { return }
-//
-//    allObjects.forEach({ (snapshot) in
-//      let notificationId = snapshot.key
-//
-//      NOTIFICATIONS_REF.child(currentUid).child(notificationId).child("checked").observeSingleEvent(of: .value, with: { (snapshot) in
-//        guard let checked = snapshot.value as? Int else { return }
-//
-//        if checked == 0 {
-//          self.dot.isHidden = false
-//        } else {
-//          self.dot.isHidden = true
-//}

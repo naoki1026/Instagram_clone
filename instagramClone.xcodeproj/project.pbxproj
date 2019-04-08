@@ -44,6 +44,9 @@
 		B0A8CB6B22420F39005C8958 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8CB6A22420F39005C8958 /* LoginVC.swift */; };
 		B0A8CB6E224215D5005C8958 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8CB6D224215D5005C8958 /* Extensions.swift */; };
 		B0A8CB702242418A005C8958 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8CB6F2242418A005C8958 /* Constants.swift */; };
+		B0B234E522587D2B0056CB72 /* EditProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B234E422587D2B0056CB72 /* EditProfileController.swift */; };
+		B0B234EA2258D3300056CB72 /* CommentInputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B234E92258D3300056CB72 /* CommentInputTextView.swift */; };
+		B0B234EC2258D41A0056CB72 /* CommentInputAccesoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B234EB2258D41A0056CB72 /* CommentInputAccesoryView.swift */; };
 		B0BD548F224DE2B700013DD7 /* SelectImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BD548E224DE2B700013DD7 /* SelectImageVC.swift */; };
 		B0BD5493224DE5A200013DD7 /* SelectPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BD5492224DE5A200013DD7 /* SelectPhotoCell.swift */; };
 		B0BD5495224DE6AD00013DD7 /* SelectPhotoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BD5494224DE6AD00013DD7 /* SelectPhotoHeader.swift */; };
@@ -94,6 +97,10 @@
 		B0A8CB6A22420F39005C8958 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		B0A8CB6D224215D5005C8958 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B0A8CB6F2242418A005C8958 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B0B234E422587D2B0056CB72 /* EditProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileController.swift; sourceTree = "<group>"; };
+		B0B234E92258D3300056CB72 /* CommentInputTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInputTextView.swift; sourceTree = "<group>"; };
+		B0B234EB2258D41A0056CB72 /* CommentInputAccesoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInputAccesoryView.swift; sourceTree = "<group>"; };
+		B0B234ED2259371D0056CB72 /* instagramClone.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = instagramClone.entitlements; sourceTree = "<group>"; };
 		B0BD548E224DE2B700013DD7 /* SelectImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImageVC.swift; sourceTree = "<group>"; };
 		B0BD5492224DE5A200013DD7 /* SelectPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPhotoCell.swift; sourceTree = "<group>"; };
 		B0BD5494224DE6AD00013DD7 /* SelectPhotoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPhotoHeader.swift; sourceTree = "<group>"; };
@@ -136,8 +143,8 @@
 		B008B4E52248747700CA6A61 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				B0B234E62258D2860056CB72 /* Comments */,
 				B008B4DB2248685200CA6A61 /* FeedVC.swift */,
-				B068303222516DB9000B9EF4 /* CommentVC.swift */,
 				B009D66A225558E4009B4AB5 /* HashtagController.swift */,
 			);
 			path = Feed;
@@ -157,6 +164,7 @@
 			children = (
 				B008B4E32248692500CA6A61 /* UserProfileVC.swift */,
 				B0CFE69C224CD71300CA2A2D /* FollowLikeVC.swift */,
+				B0B234E422587D2B0056CB72 /* EditProfileController.swift */,
 			);
 			path = UserProfile;
 			sourceTree = "<group>";
@@ -227,6 +235,7 @@
 		B0A8CB5422420E5D005C8958 /* instagramClone */ = {
 			isa = PBXGroup;
 			children = (
+				B0B234ED2259371D0056CB72 /* instagramClone.entitlements */,
 				B0A8CB6C224215C0005C8958 /* Utils */,
 				B0A8CB6722420E6B005C8958 /* Model */,
 				B0A8CB6822420E79005C8958 /* View */,
@@ -298,6 +307,16 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		B0B234E62258D2860056CB72 /* Comments */ = {
+			isa = PBXGroup;
+			children = (
+				B068303222516DB9000B9EF4 /* CommentVC.swift */,
+				B0B234EB2258D41A0056CB72 /* CommentInputAccesoryView.swift */,
+				B0B234E92258D3300056CB72 /* CommentInputTextView.swift */,
+			);
+			path = Comments;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -332,6 +351,11 @@
 				TargetAttributes = {
 					B0A8CB5122420E5D005C8958 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -430,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0BD548F224DE2B700013DD7 /* SelectImageVC.swift in Sources */,
+				B0B234E522587D2B0056CB72 /* EditProfileController.swift in Sources */,
 				B0BD5495224DE6AD00013DD7 /* SelectPhotoHeader.swift in Sources */,
 				B05D824A224F3FAE00B3B30C /* CustomImageView.swift in Sources */,
 				B0CFE69B224C642100CA2A2D /* Protocols.swift in Sources */,
@@ -451,6 +476,7 @@
 				B05D8248224F2ADC00B3B30C /* UserPostCell.swift in Sources */,
 				B008B4DA22483A4B00CA6A61 /* MainTabVC.swift in Sources */,
 				B0A8CB6E224215D5005C8958 /* Extensions.swift in Sources */,
+				B0B234EA2258D3300056CB72 /* CommentInputTextView.swift in Sources */,
 				B05D8246224F154E00B3B30C /* Post.swift in Sources */,
 				B0A8CB5622420E5D005C8958 /* AppDelegate.swift in Sources */,
 				B0CFE69F224CD90C00CA2A2D /* FollowLikeCell.swift in Sources */,
@@ -460,6 +486,7 @@
 				B009D66322542FC0009B4AB5 /* Message.swift in Sources */,
 				B07240532245F02C009407A1 /* SignUpVC.swift in Sources */,
 				B009D66722543839009B4AB5 /* ChatCell.swift in Sources */,
+				B0B234EC2258D41A0056CB72 /* CommentInputAccesoryView.swift in Sources */,
 				B008B4DE2248687A00CA6A61 /* SearchVC.swift in Sources */,
 				B009D65A22540A54009B4AB5 /* MessagesController.swift in Sources */,
 				B008B4E02248689B00CA6A61 /* UploadPostVC.swift in Sources */,
@@ -614,6 +641,7 @@
 			baseConfigurationReference = 516D50CF89B4E75048C1D8D1 /* Pods-instagramClone.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = instagramClone/instagramClone.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DVTF48299S;
 				INFOPLIST_FILE = instagramClone/Info.plist;
@@ -633,6 +661,7 @@
 			baseConfigurationReference = D5825C4F80E5E242D2FD2941 /* Pods-instagramClone.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = instagramClone/instagramClone.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DVTF48299S;
 				INFOPLIST_FILE = instagramClone/Info.plist;

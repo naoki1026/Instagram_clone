@@ -46,3 +46,7 @@ protocol Printable {
   var description: String {get}
   
 }
+
+protocol CommentInputAccesoryViewDelegate {
+  func didSubmit(forComment comment : String)
+}

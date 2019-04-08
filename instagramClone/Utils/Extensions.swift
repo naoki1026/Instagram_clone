@@ -113,13 +113,60 @@ extension UIViewController {
 
 extension Date {
   
+  func timeAgoToDisplay() -> String {
+    
+   let secondsAgo = Int(Date().timeIntervalSince(self))
   
-  
-  
-  
+    let minute = 60
+    let hour = 60 * minute
+    let day = 24 * hour
+    let week = 7 * day
+    let month = 4 * week
+    let quotient: Int
+    let unit: String
+    
+    if secondsAgo < minute {
+      quotient = secondsAgo
+      //unit = "秒"
+      unit = "SECONDS"
+      
+    } else if secondsAgo < hour {
+        
+      quotient = secondsAgo / minute
+      //unit = "分"
+      unit = "MIN"
+        
+    } else if secondsAgo < day {
+      
+      quotient = secondsAgo / hour
+      //unit = "時間"
+      unit = "HOUR"
+      
+    } else if secondsAgo < week {
+      
+      quotient = secondsAgo / day
+      //unit = "日"
+      unit = "DAY"
+      
+    } else if secondsAgo < month {
+      
+      quotient = secondsAgo / week
+      //unit = "週"
+      unit = "WEEK"
+      
+    } else {
+      quotient = secondsAgo / month
+      unit = "ヶ月"
+      //unit = "MONTH"
+      
+    }
+    
+    //return "\(quotient)\(unit)前"
+    return "\(quotient)\(unit)\(quotient == 1 ? "" : "")AGO"
+    //return "\(quotient)\(unit)\(quotient == 1 ? "" : "分") 前"
+    
+  }
 }
-
-
 
 extension UIView {
   
@@ -174,12 +221,8 @@ extension UIView {
       heightAnchor.constraint(equalToConstant: height).isActive = true
       
     }
-    
   }
-  
 }
-
-
 
 //Databaseに対して拡張している
 extension Database {

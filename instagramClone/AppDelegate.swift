@@ -8,9 +8,10 @@
 
 import UIKit
 import Firebase
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate, MessagingDelegate {
 
   var window: UIWindow?
 
@@ -29,10 +30,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //window?.rootViewController = UINavigationController(rootViewController: MainTabVC())
     window?.rootViewController = MainTabVC()
     
+    attemptToRegisterForNotifications(application: application)
     
     return true
   }
-
+  
+  func attemptToRegisterForNotifications(application: UIApplication) {
+    
+    Messaging.messaging().delegate = self
+    UNUserNotificationCenter.current().delegate = self
+    let options: UNAuthorizationOptions = [.alert, .badge, .sound]
+    UNUserNotificationCenter.current().requestAuthorization(options: options) { (authorized, error) in
+      if authorized {
+        print("DEBUG: SUCCESSFULLY REGISTERED FOR NOTIFICATIONS")
+      }
+    }
+    application.registerForRemoteNotifications()
+    
+  }
+  
+  func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+    
+    print("DEBUG: Registered for notifications with deveice token:", deviceToken  )
+  }
+  
+  func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+    
+    print("DEBUG: Registered with FCM Token: ", fcmToken)
+  }
+  
+  
   func applicationWillResignActive(_ application: UIApplication) {
     
     

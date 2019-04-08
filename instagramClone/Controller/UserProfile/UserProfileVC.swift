@@ -174,7 +174,6 @@ class UserProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLay
     feedVC.post = posts[indexPath.item]
     navigationController?.pushViewController(feedVC, animated: true)
     
-    
   }
   
   //MARK: -UserProgileHeaderProtocol
@@ -198,13 +197,24 @@ class UserProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLay
   
   
   func handleEditFollowTapped(for header: UserProfileHeader) {
-    
     guard let user = header.user else { return }
     
-    if header.editProfileFollowButton.titleLabel?.text == "Edit Profile" {
-      
-      print("Handle edit profile")
+     //print(header.editProfileFollowButton.titleLabel?.text)
     
+    guard let currentUid = Auth.auth().currentUser?.uid else {return}
+    
+    if currentUid == user.uid {
+    
+   // if header.editProfileFollowButton.titleLabel?.text == "Edit Profile" {
+      
+      print(header.editProfileFollowButton.titleLabel?.text)
+      
+     let editProfileController = EditProfileController()
+     editProfileController.user  = user
+     editProfileController.userProfileController = self
+     let navigationController = UINavigationController(rootViewController: editProfileController)
+     present(navigationController, animated: true , completion: nil)
+      
     } else {
       
     if header.editProfileFollowButton.titleLabel?.text == "Follow" {

@@ -12,5 +12,6 @@ pod 'Firebase/Storage'
 pod 'Firebase/Messaging'
 pod 'Firebase/Auth'
 pod 'ActiveLabel'
+pod 'Firebase/Messaging'
 
 end
