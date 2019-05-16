@@ -65,6 +65,7 @@ extension UIViewController {
       })
     }
   }
+  
   func uploadMentoionNotification (forPostId postId : String, withText text: String, isForComment: Bool) {
     
     guard let currentUid = Auth.auth().currentUser?.uid else {return}
@@ -156,8 +157,8 @@ extension Date {
       
     } else {
       quotient = secondsAgo / month
-      unit = "ヶ月"
-      //unit = "MONTH"
+      //unit = "ヶ月"
+      unit = "MONTH"
       
     }
     
@@ -171,7 +172,6 @@ extension Date {
 extension UIView {
   
   //オプショナルになっている理由は、毎回、必ずしも必要ではないものが含まれているためである
-  
   func anchor (top: NSLayoutYAxisAnchor?,
                left: NSLayoutXAxisAnchor?,
                bottom: NSLayoutYAxisAnchor?,
@@ -259,3 +259,4 @@ extension Database {
     }
   }
 }
+

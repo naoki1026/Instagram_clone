@@ -115,7 +115,6 @@ class SignUpVC: UIViewController,UITextFieldDelegate, UIImagePickerControllerDel
     plusPhotoBtn.anchor(top: view.topAnchor, left: nil, bottom: nil, right: nil, paddingTop: 40, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 140, height: 140)
     plusPhotoBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     
-    
     view.addSubview(emailTextField)
     view.addSubview(passwordTextField)
     view.addSubview(fullNameTextField)
@@ -125,7 +124,6 @@ class SignUpVC: UIViewController,UITextFieldDelegate, UIImagePickerControllerDel
     passwordTextField.delegate = self
     fullNameTextField.delegate = self
     userNameTextField.delegate = self
-    
     
     configureViewComponent()
     
@@ -259,7 +257,6 @@ class SignUpVC: UIViewController,UITextFieldDelegate, UIImagePickerControllerDel
     }
   }
   
-  
   @objc func formValidation() {
     
     //すべての条件が満たした場合に先に進める
@@ -268,6 +265,7 @@ class SignUpVC: UIViewController,UITextFieldDelegate, UIImagePickerControllerDel
       passwordTextField.hasText,
       fullNameTextField.hasText,
       userNameTextField.hasText,
+      
       imageSelected == true else {
         
         signUpButton.isEnabled = false
@@ -299,7 +297,6 @@ class SignUpVC: UIViewController,UITextFieldDelegate, UIImagePickerControllerDel
     stackView.anchor(top: plusPhotoBtn.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 24, paddingLeft: 40, paddingBottom: 0, paddingRight: 40, width: 0, height: 240)
     
   }
-  
 }
 
 extension SignUpVC {

@@ -178,6 +178,8 @@ class FeedVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, Fe
   }
   
   func handleLikeTapped(for cell: FeedCell, isDoubleTap: Bool) {
+    
+    print("テストです")
     guard let post = cell.post else {return}
     //guard let postId = post.postId else {return}
     
@@ -441,6 +443,19 @@ class FeedVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, Fe
       self.collectionView?.reloadData()
       
     }
+  }
+}
+
+extension UITabBar {
+  override open func sizeThatFits(_ size: CGSize) -> CGSize {
+    
+    
+    var size = super.sizeThatFits(size)
+    size.height = 35
+    
+    
+    
+    return size
   }
 }
 

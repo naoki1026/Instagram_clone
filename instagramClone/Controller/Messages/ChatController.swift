@@ -251,7 +251,7 @@ class ChatController : UICollectionViewController, UICollectionViewDelegateFlowL
     guard let currentUid = Auth.auth().currentUser?.uid else {return}
     guard let chatPartnerId = self.user?.uid else {return}
 
-    USER_MESSAGES_REF.child(currentUid).child(chatPartnerId).observe(.childAdded) {(snapshot) in
+    DB_REF.child("user-messages").child(currentUid).child(chatPartnerId).observe(.childAdded) {(snapshot) in
 
       let messageId = snapshot.key
       self.fetchMessage(withMessageId: messageId)
@@ -262,7 +262,7 @@ class ChatController : UICollectionViewController, UICollectionViewDelegateFlowL
   
   func fetchMessage(withMessageId messageId : String){
     
-    MESSAGES_REF.child(messageId).observeSingleEvent(of: .value) { (snapshot) in
+    DB_REF.child("messages").child(messageId).observeSingleEvent(of: .value) { (snapshot) in
       guard let dictionary = snapshot.value as? Dictionary<String, AnyObject> else {return}
 
       let message = Message(dictionary: dictionary)

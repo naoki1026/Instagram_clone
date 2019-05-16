@@ -32,6 +32,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     
     let tf = UITextField()
     
+    tf.text = "test1@test.com"
+    
     //textの背景に表示したい文字
     tf.placeholder = "Email"
     
@@ -55,6 +57,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
   let passwordTextField : UITextField = {
     
     let tf = UITextField()
+    tf.text = "123456"
     tf.placeholder = "Password"
     tf.backgroundColor = UIColor(white: 0, alpha: 0.03)
     tf.borderStyle = .roundedRect
@@ -71,10 +74,10 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     let button = UIButton(type: .system)
     button.setTitle("Login", for: .normal)
     button.setTitleColor(AppColors.white, for: .normal)
-    button.backgroundColor = AppColors.lightBlue
+    button.backgroundColor = AppColors.blue 
     button.addTarget(self, action:#selector(handlelogin), for: .touchUpInside)
     button.layer.cornerRadius = 5
-    button.isEnabled = false
+    button.isEnabled = true
     return button
     
   }()
@@ -165,8 +168,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
       passwordTextField.hasText else {
         
         //入力内容を満たしていない場合
-        loginButton.isEnabled = false
-        loginButton.backgroundColor = AppColors.lightBlue
+        loginButton.isEnabled = true
+        loginButton.backgroundColor = AppColors.blue
         return
     }
     

@@ -18,7 +18,6 @@ struct AppColors {
   static let white = UIColor.white
   static let black = UIColor.black
   
-  
 }
   
   // MARK: - Root References

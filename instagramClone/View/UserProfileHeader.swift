@@ -52,18 +52,18 @@ class UserProfileHeader: UICollectionViewCell {
     
   }()
   
-  let postsLabel : UILabel = {
-    let label = UILabel()
-    label.numberOfLines = 0
-    label.textAlignment = .center
-    
-    
-    let attributedText = NSMutableAttributedString(string: "5\n", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)])
-    attributedText.append(NSAttributedString(string: "posts", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14), NSAttributedString.Key.foregroundColor: UIColor.lightGray]))
-    label.attributedText = attributedText
-    return label
+//  let postsLabel : UILabel = {
+//    let label = UILabel()
+//    label.numberOfLines = 0
+//    label.textAlignment = .center
   
-  }()
+    
+//    let attributedText = NSMutableAttributedString(string: "0\n", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)])
+//    attributedText.append(NSAttributedString(string: "posts", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14), NSAttributedString.Key.foregroundColor: UIColor.lightGray]))
+//    label.attributedText = attributedText
+//    return label
+//
+//  }()
   
   //lazyにすることが重要
   lazy var followersLabel : UILabel = {
@@ -78,10 +78,6 @@ class UserProfileHeader: UICollectionViewCell {
     label.attributedText = attributedText
     
     //ラベルのタップで反応する
-    let followTap = UITapGestureRecognizer(target: self, action: #selector(handleFollowersTapped))
-    followTap.numberOfTapsRequired = 1
-    label.isUserInteractionEnabled = true
-    label.addGestureRecognizer(followTap)
     
     return label
     
@@ -198,7 +194,8 @@ class UserProfileHeader: UICollectionViewCell {
   //スタックビューとしてまとめている
   func configureUserStarts(){
     
-    let stackView = UIStackView(arrangedSubviews: [postsLabel, followersLabel, followingLabel])
+    //let stackView = UIStackView(arrangedSubviews: [postsLabel, followersLabel, followingLabel])
+    let stackView = UIStackView(arrangedSubviews: [followersLabel, followingLabel])
     
     stackView.axis = .horizontal
     stackView.distribution = .fillEqually
@@ -260,7 +257,8 @@ class UserProfileHeader: UICollectionViewCell {
     configureUserStarts()
     
     addSubview(editProfileFollowButton)
-    editProfileFollowButton.anchor(top: postsLabel.bottomAnchor, left: postsLabel.leftAnchor, bottom: nil, right: self.rightAnchor, paddingTop: 12, paddingLeft: 8, paddingBottom: 0, paddingRight: 12, width: 0, height: 30)
+//    editProfileFollowButton.anchor(top: postsLabel.bottomAnchor, left: postsLabel.leftAnchor, bottom: nil, right: self.rightAnchor, paddingTop: 12, paddingLeft: 8, paddingBottom: 0, paddingRight: 12, width: 0, height: 30)
+        editProfileFollowButton.anchor(top: followersLabel.bottomAnchor, left: followersLabel.leftAnchor, bottom: nil, right: self.rightAnchor, paddingTop: 12, paddingLeft: 8, paddingBottom: 0, paddingRight: 12, width: 0, height: 30)
     
     configureBottomToolBar()
     
